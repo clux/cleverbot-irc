@@ -7,7 +7,7 @@ Install and modify the default config file to suit your needs:
 ```bash
 npm install -g cleverbot-irc
 curl https://raw.github.com/clux/cleverbot-irc/master/.clvr.json > .clvr.json
-gedit .clvr.json # you must change the first 3 params in config
+gedit .clvr.json # you must change the first 4 params in config
 clvrbot
 ```
 
