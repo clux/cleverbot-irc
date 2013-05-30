@@ -1,4 +1,3 @@
-
 #!/usr/bin/env node
 var CleverBot = new require('cleverbot-node')
   , clever = new CleverBot()
