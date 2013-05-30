@@ -75,7 +75,8 @@ var getZalgoIntensities = function () {
   var max = dist/len;
   console.log(dye.magenta('full moon intensity at ' + max + '%'));
 
-  // upper maximum is [10, 6, 10] at full moon
+  // [0, 0, 0] at [0, fullMoonCutoff), [10, 6, 10] at full moon (=1)
+  // linear interpolation in the range [fullMoonCutoff, 1]
   return [
     Math.ceil(10*max),
     Math.ceil(6*max),
