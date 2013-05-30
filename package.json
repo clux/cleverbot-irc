@@ -1,0 +1,22 @@
+{
+  "author": "Eirik Albrigtsen <analsandblaster@gmail.com>",
+  "name": "cleverbot-irc",
+  "description": "IRC bot that defers to Cleverbot",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/clux/cleverbot-irc.git"
+  },
+  "bin": {
+    "clvrbot": "clvr.js"
+  },
+  "dependencies": {
+    "levenshtein": "~1.0.1",
+    "dye": "~0.2.0",
+    "irc": "~0.3.6",
+    "cleverbot-node": "~0.1.1",
+    "suncalc": "~1.2.1",
+    "confortable": "~0.2.1"
+  },
+  "license": "MIT"
+}
