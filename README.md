@@ -5,7 +5,7 @@ A simple and fun IRC bot that connects to a server/channel of choice and will re
 Install and modify the default config file to suit your needs:
 
 ```bash
-npm install -g clever-irc
+npm install -g cleverbot-irc
 curl https://raw.github.com/clux/cleverbot-irc/master/.clvr.json > .clvr.json
 gedit .clvr.json # you must change the first 3 params in config
 clvrbot
