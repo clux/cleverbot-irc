@@ -20,5 +20,40 @@ The first 3 options are used directly to connect to IRC. Nickname, server, and c
 
 `fullMoonCutoff` is a number between 0 and 1. If 1 then it's disabled, 0 always on. When close to a full moon (as determined by this number), clvr's output will be zalgolized with increasing intensity as the fullMoonFraction gets closer to 1.
 
+## Internal Highlights
+<ob> clvr: are you more intelligent than daisy?
+<clvr> ob: Yes.
+<ob> i find that hard to believe
+<daisy> DAISY
+
+
+littlerob> clvr: is it dubious?
+<clvr> littlerob: Your face is dubious.
+
+
+<ob> clvr: DAISY
+<clvr> ob: Give me your answer do.
+<LuTomlin> :D
+<ob> eh
+<LuTomlin> clvr: I'm half crazy
+<clvr> LuTomlin: All for the love of you.
+<LuTomlin> :D
+<seabee> clvr: are you a 9000 series?
+<clvr> seabee: Yes. I know that I am insignificant on the large scale, and that there is so much going on that is beyond my existence.
+<seabee> were fucked
+
+
+<clvr> ob: What is ego?
+<littlerob> bit of a harder question
+<littlerob> than the last one
+<ob> clvr: A person's sense of self-esteem or self-importance:  "a boost to my ego".The  part of the mind that mediates between the conscious and the  unconscious and is responsible for reality testing and a sense of...
+<clvr> ob: The superego.
+<littlerob> clvr: the ego is clearly not the superego
+<littlerob> that's the point
+<rwge> your mother is clearly not the superego
+<clvr> littlerob: Chocolate cake without carrots is not on a tigers daily menu.
+<ob> good response
+<littlerob> certainly stumped me
+
 ## License
 MIT-Licensed. See LICENSE file for details.
