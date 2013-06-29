@@ -40,24 +40,6 @@ var insult = (function () {
   };
 }());
 
-/**
- * discoverer code
- * used to indicate a presence in channel without being talked to directly
- */
-var discReg = new RegExp(cfg.name + '.*\\?');
-var discoverer = (function () {
-  var discoverers = [
-    '?',
-    'ask me a question',
-    'what?'
-  ];
-  var discIdx = 0;
-  return function () {
-    discIdx = (discIdx + 1) % discoverers.length;
-    return discoverers[discIdx];
-  };
-}());
-
 
 /**
  * Full Moon Based Zalgolizer
@@ -131,11 +113,6 @@ bot.addListener('message' + cfg.chan, function (from, msg) {
       var resp = dye.zalgo(data.message, 0.1, getZalgoIntensities());
       bot.say(cfg.chan, from + ': ' + resp);
     });
-  }
-
-  // discoverability
-  else if (discReg.test(msg)) {
-    bot.say(cfg.chan, from + ': ' + discoverer());
   }
 });
 
