@@ -4,5 +4,5 @@
   "chan": "#clevarTest",
   "pmPass": "w00t",
   "ignoreMax": 3600,
-  "fullMoonCutoff": 0.9
+  "fullMoonCutoff": 0.925
 }
