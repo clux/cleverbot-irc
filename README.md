@@ -11,6 +11,18 @@ gedit .clvr.json # you must change the first 4 params in config
 clvrbot
 ```
 
+Alternatively, if you want to fork and work directly:
+
+```bash
+git clone https://github.com/clux/cleverbot-irc.git
+cd cleverbot-irc
+npm install
+gedit .clvr.json # you must edit this config
+./clvr.js
+```
+
+But keep in mind that .clvr.json is the default config for a global npm install.
+
 ## Config options
 The first 3 options are used directly to connect to IRC. Nickname, server, and channel to connect to.
 
