@@ -21,6 +21,12 @@ gedit .clvr.json
 npm start
 ```
 
+## Quirks
+Because spare time.
+
+- `clvr` will go a little crazy close to every full moon
+- imitating the responses of `clvr` back to her can get you ignored for some time
+
 ## Internal Highlights
 
 ```
