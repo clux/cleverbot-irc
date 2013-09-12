@@ -1,7 +1,5 @@
 {
   "name": "clvr",
   "server": "irc.quakenet.org",
-  "chan": "#clevarTest",
-  "ignoreMax": 3600,
-  "fullMoonCutoff": 0.925
+  "chan": "#clevarTest"
 }
