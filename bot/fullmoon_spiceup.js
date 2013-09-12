@@ -36,22 +36,22 @@ var colorMap = function (intensity) {
 };
 
 
-module.exports = function (text) {
+module.exports = function (resp) {
   var d = new Date();
   var intensity = moonIntensity(d);
   if (intensity > 0) { // full moon
 
     // sometimes colorize
     if (d.getMonth() % 2) {
-      return colorMap(intensity)(text);
+      return colorMap(intensity)(resp);
     }
 
     // sometimes zalgolize
-    return zalgo(text, 0.1, [
+    return zalgo(resp, 0.1, [
       Math.ceil(10*intensity),
       Math.ceil(6*intensity),
       Math.ceil(10*intensity)
     ]);
   }
-  return text;
+  return resp;
 };

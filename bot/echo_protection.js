@@ -9,8 +9,8 @@ exports.isIgnored = function (user) {
 };
 
 // remember the last thing said to `user`
-exports.remember = function (user, msg) {
-  responses[user] = msg;
+exports.remember = function (user, resp) {
+  responses[user] = resp;
 };
 
 // returns if last thing `user` said is close to the last thing WE said

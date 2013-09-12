@@ -1,7 +1,7 @@
 var CleverBot = new require('cleverbot-node')
   , clever = new CleverBot()
-  , echoProtection = require('./echo_protection')
-  , fullmoonSpiceup = require('./fullmoon_spiceup');
+  , protection = require('./echo_protection')
+  , maybeSpiceUp = require('./fullmoon_spiceup');
 
 /**
  * insult code
@@ -29,22 +29,23 @@ var insult = (function () {
 module.exports = function (gu) {
 
   gu.on(/(.*)/, function (message, user) {
-    if (!echoProtection.isIgnored(user)) {
-      if (echoProtection.isTooSimilar(user, message)) {
+    if (!protection.isIgnored(user)) {
+      if (protection.isTooSimilar(user, message)) {
         gu.say(user + ': ' + insult());
-        return echoProtection.ignore(user, ignoreMax);
+        return protection.ignore(user, ignoreMax);
       }
 
       // pass message on to cleverbot
       clever.write(message, function (data) {
+        var resp = data.message;
         // remember the last thing `user` got returned to him
         // so we can verify that he doesn't simply echo it back
-        echoProtection.remember(user, data.message);
-
+        protection.remember(user, resp);
 
         // do fancy things to the message on full moons
-        gu.say(user + ': ' + fullmoonSpiceup(data.message));
+        gu.say(user + ': ' + maybeSpiceUp(resp));
       });
     }
   });
+
 };
