@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 var CleverBot = new require('cleverbot-node')
   , clever = new CleverBot()
-  , irc = require('irc')
   , dye = require('dye')
   , Levenshtein = require('levenshtein')
   , format = require('util').format
@@ -11,7 +10,7 @@ var CleverBot = new require('cleverbot-node')
 console.log(dye.green('using: ' + cfgPath));
 var cfg = require(cfgPath);
 
-var bot = new irc.Client(cfg.server, cfg.name, {
+var gu = require('gu')(cfg.server, cfg.name, {
   userName: 'IAmA',
   realName: 'clever',
   debug: false,
@@ -66,62 +65,48 @@ var getZalgoIntensities = function () {
   ];
 };
 
-/**
- * channel handler
- */
-var chanReg = new RegExp('^' + cfg.name + '[\\s,\\:](.*)');
-
 var repeats = {}; // maintains last said thing for a user
 var ignores = [];
 
-bot.addListener('message' + cfg.chan, function (from, msg) {
-  console.log(dye.blue(format(from, 'in', cfg.chan + ':', msg)));
-
-  // cleverbot
-  if (chanReg.test(msg)) {
-    var content = msg.match(chanReg)[1].trim();
-
-    if (!content || ignores.indexOf(from) >= 0) {
-      return; // empty string or ignored guy
-    }
-
-    // repeat messengers should not echo back 'basically' what cleverbot said
-    if (repeats[from]) {
-      var ld = new Levenshtein(repeats[from], content);
-      if (ld.distance < content.length/8) {
-        var ignoreTime = Math.ceil(cfg.ignoreMax*1000*Math.random());
-        console.log(dye.yellow(
-          'ignoring ' + from + ' for ' + Math.floor(ignoreTime/1000) + 's'
-        ));
-        ignores.push(from);
-        bot.say(cfg.chan, from + ": " + insult());
-
-        setTimeout(function () {
-          console.log(dye.yellow(format('unignoring', from)));
-          ignores.splice(ignores.indexOf(from), 1);
-        }, ignoreTime);
-        return;
-      }
-    }
-
-    // pass data onto cleverbot
-    clever.write(content, function (data) {
-      // cache response for user so we can catch if they mime on next message
-      repeats[from] = data.message;
-
-      // get message and zalgolize if close to full moon
-      var resp = dye.zalgo(data.message, 0.1, getZalgoIntensities());
-      bot.say(cfg.chan, from + ': ' + resp);
-    });
+gu.on(/(.*)/, function (content, from) {
+  if (ignores.indexOf(from) >= 0) {
+    return; // ignored person
   }
-});
+  // repeat messengers should not echo back 'basically' what cleverbot said
+  if (repeats[from]) {
+    var ld = new Levenshtein(repeats[from], content);
+    if (ld.distance < content.length/8) {
+      var ignoreTime = Math.ceil(cfg.ignoreMax*1000*Math.random());
+      console.log(dye.yellow(
+        'ignoring ' + from + ' for ' + Math.floor(ignoreTime/1000) + 's'
+      ));
+      ignores.push(from);
+      gu.say(from + ": " + insult());
 
+      setTimeout(function () {
+        console.log(dye.yellow(format('unignoring', from)));
+        ignores.splice(ignores.indexOf(from), 1);
+      }, ignoreTime);
+      return;
+    }
+  }
+
+  // pass data onto cleverbot
+  clever.write(content, function (data) {
+    // cache response for user so we can catch if they mime on next message
+    repeats[from] = data.message;
+
+    // get message and zalgolize if close to full moon
+    var resp = dye.zalgo(data.message, 0.1, getZalgoIntensities());
+    gu.say(from + ': ' + resp);
+  });
+});
 
 /**
  * PMS
  * either insults you, or allows you to talk through him via 'PASS: msg'
  */
-var pmReg = new RegExp('^' + cfg.pmPass + '\\:\\s*(.*)');
+/*var pmReg = new RegExp('^' + cfg.pmPass + '\\:\\s*(.*)');
 
 bot.addListener('pm', function (nick, msg) {
   console.log(dye.green(format(nick, 'in pm', msg)));
@@ -135,9 +120,4 @@ bot.addListener('pm', function (nick, msg) {
     bot.say(nick, insult());
   }
 });
-
-
-// only errors are unhandled message types I think
-bot.addListener('error', function (message) {
-  console.warn(dye.red('error:'), message);
-});
+*/
