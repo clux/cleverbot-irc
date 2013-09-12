@@ -2,7 +2,6 @@
   "name": "clvr",
   "server": "irc.quakenet.org",
   "chan": "#clevarTest",
-  "pmPass": "w00t",
   "ignoreMax": 3600,
   "fullMoonCutoff": 0.925
 }

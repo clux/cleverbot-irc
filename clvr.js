@@ -101,23 +101,3 @@ gu.on(/(.*)/, function (content, from) {
     gu.say(from + ': ' + resp);
   });
 });
-
-/**
- * PMS
- * either insults you, or allows you to talk through him via 'PASS: msg'
- */
-/*var pmReg = new RegExp('^' + cfg.pmPass + '\\:\\s*(.*)');
-
-bot.addListener('pm', function (nick, msg) {
-  console.log(dye.green(format(nick, 'in pm', msg)));
-  if (pmReg.test(msg)) {
-    var match = msg.match(pmReg)
-      , chan = cfg.chan
-      , cmd = match[1];
-    bot.say(chan, cmd);
-  }
-  else {
-    bot.say(nick, insult());
-  }
-});
-*/
