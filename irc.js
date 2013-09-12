@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 var cfgPath = require('confortable')('.clvr.json', process.cwd());
 
+if (!cfgPath) {
+  throw new Error("When loading wolfram-irc externally, a local config is required");
+}
 console.log('using: ' + cfgPath);
 var cfg = require(cfgPath);
 
