@@ -7,8 +7,11 @@
     "type": "git",
     "url": "git://github.com/clux/cleverbot-irc.git"
   },
+  "scripts": {
+    "start": "node irc.js"
+  },
   "bin": {
-    "clvrbot": "clvr.js"
+    "clvrbot": "irc.js"
   },
   "dependencies": {
     "levenshtein": "~1.0.1",
