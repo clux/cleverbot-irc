@@ -19,6 +19,7 @@
     "gu": "~0.0.1",
     "cleverbot-node": "~0.1.2",
     "suncalc": "~1.2.1",
+    "irc-colors": "~1.0.3",
     "confortable": "~0.2.1"
   },
   "license": "MIT"
