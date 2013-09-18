@@ -28,23 +28,24 @@ var insult = (function () {
 
 module.exports = function (gu) {
 
-  gu.on(/(.*)/, function (message, user) {
+  gu.respond(/(.*)/, function (message, say, user) {
     if (!protection.isIgnored(user)) {
       if (protection.isTooSimilar(user, message)) {
-        gu.say(user + ': ' + insult());
-        return protection.ignore(user, ignoreMax);
+        protection.ignore(user, ignoreMax);
+        say(insult());
       }
+      else {
+        // pass message on to cleverbot
+        clever.write(message, function (data) {
+          var resp = data.message;
+          // remember the last thing `user` got returned to him
+          // so we can verify that he doesn't simply echo it back
+          protection.remember(user, resp);
 
-      // pass message on to cleverbot
-      clever.write(message, function (data) {
-        var resp = data.message;
-        // remember the last thing `user` got returned to him
-        // so we can verify that he doesn't simply echo it back
-        protection.remember(user, resp);
-
-        // do fancy things to the message on full moons
-        gu.say(user + ': ' + maybeSpiceUp(resp));
-      });
+          // do fancy things to the message on full moons
+          say(maybeSpiceUp(resp));
+        });
+      }
     }
   });
 

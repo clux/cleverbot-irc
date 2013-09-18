@@ -28,7 +28,7 @@ var colorMap = function (intensity) {
     comp(col.bold, col.olive), // .4
     comp(col.bold, col.pink), // .6
     col.rainbow, // .7
-    comp(col.rainbow, col.bold)
+    comp(col.bold, col.rainbow)
   ];
   var l = fnProgress.length;
   var idx = Math.min(l - 1, Math.floor(intensity * l)); // map intensity to prog idx
