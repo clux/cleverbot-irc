@@ -14,7 +14,7 @@ var insult = (function () {
     '..',
     'Get lost.',
     '...',
-    'You should be wcforking.',
+    'You should be working.',
     'This is not a productive area of discussion.',
     'Do you even lift?'
   ];
@@ -28,7 +28,7 @@ var insult = (function () {
 
 module.exports = function (gu) {
 
-  gu.handle(/(.*)/, function (message, say, user) {
+  gu.handle(/(.*)/, function (say, message, user) {
     if (!protection.isIgnored(user)) {
       if (protection.isTooSimilar(user, message)) {
         protection.ignore(user, ignoreMax);
