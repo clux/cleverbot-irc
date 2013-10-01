@@ -16,7 +16,7 @@
   "dependencies": {
     "levenshtein": "~1.0.1",
     "dye": "~0.2.0",
-    "gu": "~0.2.0",
+    "gu": "~0.2.2",
     "irc-stream": "~0.0.5",
     "cleverbot-node": "~0.1.2",
     "suncalc": "~1.2.1",
