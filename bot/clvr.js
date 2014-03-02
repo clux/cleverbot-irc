@@ -29,6 +29,9 @@ var insult = (function () {
 module.exports = function (gu) {
 
   gu.handle(/(.*)/, function (say, message, user) {
+    // write received message
+    console.log(user, ':', message);
+
     if (!protection.isIgnored(user)) {
       if (protection.isTooSimilar(user, message)) {
         protection.ignore(user, ignoreMax);
