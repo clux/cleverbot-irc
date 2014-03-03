@@ -7,11 +7,6 @@ var cfg = require(cfgPath);
 
 var join = require('path').join;
 var gu = require('gu')(join(__dirname, 'bot'), ['clvr.js']);
-var ircStream = require('irc-stream')(cfg.server, cfg.name, {
-  userName: 'IAmA',
-  realName: 'clever',
-  debug: false,
-  channels: [cfg.chan],
-}, { conversationMode: true });
+var ircStream = require('irc-stream')(cfg.server, cfg.name, cfg.ircOpts, cfg.opts);
 
 ircStream.pipe(gu).pipe(ircStream);

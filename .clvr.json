@@ -1,5 +1,13 @@
 {
   "name": "clvr",
   "server": "irc.quakenet.org",
-  "chan": "#clevarr"
+  "ircOpts": {
+    "channels": ["#clevarr"],
+    "userName": "IAmA",
+    "realName": "clever",
+    "debug": "false"
+  },
+  "opts": {
+    "conversationMode": "true"
+  }
 }
