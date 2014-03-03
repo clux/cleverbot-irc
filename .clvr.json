@@ -2,7 +2,7 @@
   "name": "clvr",
   "server": "irc.quakenet.org",
   "ircOpts": {
-    "channels": ["#clevarr"],
+    "channels": ["#testclever"],
     "userName": "IAmA",
     "realName": "clever",
     "debug": "false"
