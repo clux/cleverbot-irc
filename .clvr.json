@@ -8,6 +8,7 @@
     "debug": "false"
   },
   "opts": {
-    "conversationMode": "true"
+    "conversationMode": "true",
+    "participationChance": 2
   }
 }
