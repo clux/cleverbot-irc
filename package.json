@@ -18,7 +18,7 @@
     "dye": "~0.2.0",
     "gu": "~0.3.0",
     "irc-stream": "~0.0.7",
-    "cleverbot-node": "~0.1.2",
+    "cleverbot-node": "~0.1.8",
     "suncalc": "~1.2.1",
     "irc-colors": "~1.0.3",
     "confortable": "~0.2.1"
