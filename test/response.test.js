@@ -12,9 +12,12 @@ exports.response = function (t) {
     clvr.write(x);
   });
 
-  clvr.addListener('readable', function () {
+  clvr.on('readable', function () {
     var resp = clvr.read();
     t.ok(resp, 'got a response');
+    t.equal(resp.user, '#chan:clux', 'addressed to me');
+    // TODO: if it starts failing - create a test to ensure
+    // resp is not equal to "<html>"" or whatever it returns when permissions fail
     t.done();
   });
 };
