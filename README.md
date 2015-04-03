@@ -1,26 +1,28 @@
 # cleverbot-irc
-[![Dependency Status](https://david-dm.org/clux/cleverbot-irc.png)](https://david-dm.org/clux/cleverbot-irc)
-[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://nodejs.org/api/documentation.html#documentation_stability_index)
+[![npm status](http://img.shields.io/npm/v/cleverbot-irc.svg)](https://www.npmjs.org/package/cleverbot-irc)
+[![build status](https://secure.travis-ci.org/clux/cleverbot-irc.svg)](http://travis-ci.org/clux/cleverbot-irc)
+[![dependency status](https://david-dm.org/clux/cleverbot-irc.svg)](https://david-dm.org/clux/cleverbot-irc)
+[![coverage status](http://img.shields.io/coveralls/clux/cleverbot-irc.svg)](https://coveralls.io/r/clux/cleverbot-irc)
 
-A simple and fun IRC bot that connects to a server/channel of choice and will relay any messages addressed to it in the channel to [Cleverbot](http://http://www.cleverbot.com/) for public humiliation/laughs.
+Experimental IRC bot that connects to a server/channel of choice and will relay any messages addressed to it in the channel to [Cleverbot](http://http://www.cleverbot.com/) for public humiliation/laughs.
 
 ## Usage/Installation
 Install and modify the default config file to suit your needs:
 
-```bash
+```sh
 npm install -g cleverbot-irc
 curl https://raw.github.com/clux/cleverbot-irc/master/.clvr.json > .clvr.json
-gedit .clvr.json
+# modify .clvr.json
 clvrbot
 ```
 
 Alternatively, if you want to fork and work directly:
 
-```bash
+```sh
 git clone https://github.com/clux/cleverbot-irc.git
 cd cleverbot-irc
 npm install
-gedit .clvr.json
+# modify .clvr.json
 npm start
 ```
 
