@@ -29,6 +29,7 @@ var insult = (function () {
 module.exports = function (gu) {
 
   gu.handle(/(.*)/, function (say, message, user) {
+    gu.log.info(user + ':', message);
     if (!protection.isIgnored(user)) {
       if (protection.isTooSimilar(user, message)) {
         protection.ignore(user, ignoreMax);
@@ -41,6 +42,7 @@ module.exports = function (gu) {
           // remember the last thing `user` got returned to him
           // so we can verify that he doesn't simply echo it back
           protection.remember(user, resp);
+          gu.log.info('clvr:', resp);
 
           // do fancy things to the message on full moons
           say(maybeSpiceUp(resp));

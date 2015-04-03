@@ -4,8 +4,7 @@
   "irc": {
     "channels": ["#testclever"],
     "userName": "IAmA",
-    "realName": "clever",
-    "debug": "false"
+    "realName": "clever"
   },
   "stream": {
     "alwaysHighlight": "true",

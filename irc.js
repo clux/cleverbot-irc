@@ -6,6 +6,7 @@ if (!cfgPath) {
 var cfg = require(cfgPath);
 
 var ircStream = require('irc-stream')(cfg.server, cfg.name, cfg.irc, cfg.stream);
-var clvr = require('./');
+var gu = require('./').gu();
+require('sulfur').absorb(gu.log, 'clvrbot');
 
-ircStream.pipe(clvr.gu()).pipe(ircStream);
+ircStream.pipe(gu).pipe(ircStream);
