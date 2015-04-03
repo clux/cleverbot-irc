@@ -5,8 +5,7 @@ if (!cfgPath) {
 }
 var cfg = require(cfgPath);
 
-var join = require('path').join;
-var gu = require('gu')(join(__dirname, 'bot'), ['clvr.js'], { noReload: true });
-var ircStream = require('irc-stream')(cfg.server, cfg.name, cfg.ircOpts, cfg.opts);
+var ircStream = require('irc-stream')(cfg.server, cfg.name, cfg.irc, cfg.stream);
+var clvr = require('./');
 
-ircStream.pipe(gu).pipe(ircStream);
+ircStream.pipe(clvr.gu()).pipe(ircStream);

@@ -1,14 +1,14 @@
 {
   "name": "clvr",
   "server": "irc.quakenet.org",
-  "ircOpts": {
+  "irc": {
     "channels": ["#testclever"],
     "userName": "IAmA",
     "realName": "clever",
     "debug": "false"
   },
-  "opts": {
-    "conversationMode": "true",
-    "participationChance": 2
+  "stream": {
+    "alwaysHighlight": "true",
+    "participationChance": 0.02
   }
 }

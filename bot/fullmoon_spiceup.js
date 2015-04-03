@@ -1,4 +1,4 @@
-var zalgo = require('dye').zalgo
+var zalgo = require('zalgolize')
   , sunCalc = require('suncalc')
   , col = require('irc-colors');
 
@@ -12,7 +12,8 @@ var moonIntensity = function (d) {
   // (moonFraction - cutOff) is how far into the "full moon" interval we are
   // (1 - cutOff) is the length of that interval
   // => moon { 0 if outside interval, between 0 and 1 inside interval, 1 at peak}
-  return Math.max(0, (sunCalc.getMoonFraction(d) - cutOff)/(1 - cutOff));
+  var fraction = sunCalc.getMoonIllumination(d).fraction;
+  return Math.max(0, (fraction - cutOff)/(1 - cutOff));
 };
 
 var comp = function (f, g) {
