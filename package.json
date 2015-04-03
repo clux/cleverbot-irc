@@ -2,7 +2,7 @@
   "author": "Eirik Albrigtsen <analsandblaster@gmail.com>",
   "name": "cleverbot-irc",
   "description": "IRC bot that defers to Cleverbot",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "clux/cleverbot-irc"
