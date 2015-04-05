@@ -23,13 +23,13 @@ exports.isTooSimilar = function (user, msg) {
 };
 
 // ignores `user` for up to ignoreMax seconds
-exports.ignore = function (user, ignoreMax) {
+exports.ignore = function (user, ignoreMax, log) {
   var ignoreTime = Math.ceil(ignoreMax*1000*Math.random());
-  console.log('ignoring', user, 'for', Math.floor(ignoreTime/1000) + 's');
+  log.info('ignoring', user, 'for', Math.floor(ignoreTime/1000) + 's');
   ignores.push(user);
 
   setTimeout(function () {
-    console.log('unignoring:', user);
+    log.info('unignoring:', user);
     ignores.splice(ignores.indexOf(user), 1);
   }, ignoreTime);
   return ignoreTime;

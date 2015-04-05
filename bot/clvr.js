@@ -3,36 +3,35 @@ var CleverBot = new require('cleverbot-node')
   , protection = require('./echo_protection')
   , maybeSpiceUp = require('./fullmoon_spiceup');
 
-/**
- * insult code
- * used to notify in channel if we are ignoring a person
- */
-const ignoreMax = 3600;
-var insult = (function () {
-  var insults = [
-    '.',
-    '..',
-    'Get lost.',
-    '...',
-    'You should be working.',
-    'This is not a productive area of discussion.',
-    'Do you even lift?'
-  ];
-  var insIdx = -1;
-  return function () {
-    insIdx = (insIdx + 1) % insults.length;
-    return insults[insIdx];
-  };
-}());
+module.exports = function (gu, opts) {
+  /**
+   * insult code
+   * used to notify in channel if we are ignoring a person
+   */
+  const ignoreMax = opts.ignoreMax || 3600;
 
-
-module.exports = function (gu) {
+  var insult = (function () {
+    var insults = [
+      '.',
+      '..',
+      'Get lost.',
+      '...',
+      'You should be working.',
+      'This is not a productive area of discussion.',
+      'Do you even lift?'
+    ];
+    var insIdx = -1;
+    return function () {
+      insIdx = (insIdx + 1) % insults.length;
+      return insults[insIdx];
+    };
+  }());
 
   gu.handle(/(.*)/, function (say, message, user) {
     gu.log.info(user + ':', message);
     if (!protection.isIgnored(user)) {
       if (protection.isTooSimilar(user, message)) {
-        protection.ignore(user, ignoreMax);
+        protection.ignore(user, ignoreMax, gu.log);
         say(insult());
       }
       else {
