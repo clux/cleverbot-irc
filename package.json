@@ -21,7 +21,7 @@
   "dependencies": {
     "cleverbot-node": "^0.1.8",
     "confortable": "^0.2.1",
-    "gu": "^0.5.0",
+    "gu": "^0.5.1",
     "sulfur": "^1.0.0",
     "irc-colors": "^1.0.3",
     "irc-stream": "^0.3.0",
