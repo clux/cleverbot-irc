@@ -19,6 +19,7 @@ exports.clvr = function (t) {
     t.ok(resp, 'got a message');
     t.equal(resp.user, 'clux', 'addressed to me');
     t.equal(resp.channel, '#test', 'in requested channel');
+    t.notEqual(resp.message, 'Error: 404', 'and it isnt broken');
     if (sent === 1) {
       t.equal(resp.message, '.', 'mimicing got us ignored');
       setTimeout(function () {
