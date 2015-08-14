@@ -1,5 +1,5 @@
-var CleverBot = new require('cleverbot-node')
-  , clever = new CleverBot()
+var Cleverbot = require('cleverbot-node')
+  , clever = new Cleverbot()
   , protection = require('./echo_protection')
   , maybeSpiceUp = require('./fullmoon_spiceup');
 
@@ -37,15 +37,17 @@ module.exports = function (gu, opts) {
       }
       else {
         // pass message on to cleverbot
-        clever.write(message, function (data) {
-          var resp = data.message;
-          // remember the last thing `user` got returned to him
-          // so we can verify that he doesn't simply echo it back
-          protection.remember(user, resp);
-          gu.log.info('clvr:', resp);
+        Cleverbot.prepare(function () {
+          clever.write(message, function (data) {
+            var resp = data.message;
+            // remember the last thing `user` got returned to him
+            // so we can verify that he doesn't simply echo it back
+            protection.remember(user, resp);
+            gu.log.info('clvr:', resp);
 
-          // do fancy things to the message on full moons
-          say(maybeSpiceUp(resp));
+            // do fancy things to the message on full moons
+            say(maybeSpiceUp(resp));
+          });
         });
       }
     }

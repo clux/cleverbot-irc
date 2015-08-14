@@ -32,24 +32,6 @@ Because spare time.
 - `clvr` will go a little crazy close to every full moon
 - imitating the responses of `clvr` back to her can get you ignored for some time
 
-This is the main reason for the experimental tag; no guarantees on how this behaviour changes.
-
-Because otherwise this module would be a super short. In fact, this short:
-
-```js
-var CleverBot = new require('cleverbot-node');
-var clever = new CleverBot();
-module.exports = function (gu) {
-  gu.handle(/(.*)/, function (say, message, user) {
-    clever.write(message, function (data) {
-      say(data.message);
-    });
-  });
-};
-```
-
-You don't need me for that.
-
 ## Internal Highlights
 
 ```
