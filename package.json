@@ -12,8 +12,7 @@
     "start": "node irc.js",
     "test": "nodeunit --reporter=verbose test/*.test.js",
     "precoverage": "jscoverage bot",
-    "coverage": "CLVRBOT_COV=1 nodeunit --reporter=lcov test/*.test.js",
-    "coveralls": "npm run coverage | coveralls"
+    "coverage": "CLVRBOT_COV=1 nodeunit --reporter=lcov test/*.test.js"
   },
   "bin": {
     "clvrbot": "irc.js"
@@ -30,7 +29,6 @@
     "zalgolize": "^1.0.0"
   },
   "devDependencies": {
-    "coveralls": "^2.11.2",
     "jscoverage": "^0.5.9",
     "nodeunit": "^0.9.1"
   },

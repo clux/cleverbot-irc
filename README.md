@@ -6,7 +6,7 @@
 
 Experimental IRC bot that connects to a server/channel of choice and will relay any messages addressed to it in the channel to [Cleverbot](http://http://www.cleverbot.com/) for public humiliation/laughs.
 
-## Usage/Installation
+## Usage
 Install and modify the default config file to suit your needs:
 
 ```sh
