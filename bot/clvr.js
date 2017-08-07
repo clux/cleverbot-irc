@@ -1,7 +1,8 @@
-var Cleverbot = require('cleverbot-node')
-  , clever = new Cleverbot()
-  , protection = require('./echo_protection')
-  , maybeSpiceUp = require('./fullmoon_spiceup');
+var Cleverbot = require('cleverbot-node');
+var clever = new Cleverbot();
+clever.configure({botapi: "IAMKEY"}); //Here goes Cleverbot API key
+var protection = require('./echo_protection');
+var maybeSpiceUp = require('./fullmoon_spiceup');
 
 /**
  * insult code

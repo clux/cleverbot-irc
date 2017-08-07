@@ -1,13 +1,17 @@
 {
-  "name": "clvr",
-  "server": "irc.quakenet.org",
-  "irc": {
-    "channels": ["#testclever"],
-    "userName": "IAmA",
-    "realName": "clever"
-  },
-  "stream": {
-    "alwaysHighlight": "true",
-    "participationChance": 0.02
-  }
+    "name": "clvr",
+    "server": "irc.quakenet.org",
+    "irc": {
+        "channels": ["#testclever"],
+        "userName": "IAmA",
+        "realName": "clever"
+    },
+    "stream": {
+        //allErrors: Boolean, // manually handle `irc` error events 
+        //ignoreChannel: Boolean, // ignore channel directed messages 
+        //answerPms: Boolean, // respond to private messages 
+        //neverHighlight: Boolean // never highlight channel responses 
+        alwaysHighlight: "true" // always highlight channel responses 
+        participationChance: 0.02 // probability to respond without being addressed
+    }
 }
