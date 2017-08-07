@@ -3,6 +3,8 @@ var Cleverbot = require('cleverbot-node')
   , protection = require('./echo_protection')
   , maybeSpiceUp = require('./fullmoon_spiceup');
 
+clever.configure({ botapi: process.env.CLEVERBOT_KEY || cfg.apiKey });
+
 /**
  * insult code
  * used to notify in channel if we are ignoring a person
@@ -37,17 +39,15 @@ module.exports = function (gu, opts) {
       }
       else {
         // pass message on to cleverbot
-        Cleverbot.prepare(function () {
-          clever.write(message, function (data) {
-            var resp = data.message;
-            // remember the last thing `user` got returned to him
-            // so we can verify that he doesn't simply echo it back
-            protection.remember(user, resp);
-            gu.log.info('clvr:', resp);
+        clever.write(message, function (data) {
+          var resp = data.message;
+          // remember the last thing `user` got returned to him
+          // so we can verify that he doesn't simply echo it back
+          protection.remember(user, resp);
+          gu.log.info('clvr:', resp);
 
-            // do fancy things to the message on full moons
-            say(maybeSpiceUp(resp));
-          });
+          // do fancy things to the message on full moons
+          say(maybeSpiceUp(resp));
         });
       }
     }

@@ -7,7 +7,7 @@
 Experimental IRC bot that connects to a server/channel of choice and will relay any messages addressed to it in the channel to [Cleverbot](http://http://www.cleverbot.com/) for public humiliation/laughs.
 
 ## Usage
-Install and modify the default config file to suit your needs:
+Get a free/paid key from the [cleverbot api](https://www.cleverbot.com/api/), then install and modify the default config file to suit your needs:
 
 ```sh
 npm install -g cleverbot-irc
@@ -25,6 +25,8 @@ npm install
 # modify .clvr.json
 npm start
 ```
+
+You can put your `apiKey` in the config, but it will be overridden if the `CLEVERBOT_KEY` environment variable is set.
 
 ## Quirks
 Because spare time.

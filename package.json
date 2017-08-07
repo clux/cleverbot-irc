@@ -18,13 +18,13 @@
     "clvrbot": "irc.js"
   },
   "dependencies": {
-    "cleverbot-node": "^0.2.1",
+    "cleverbot-node": "^0.3.11",
     "confortable": "^1.0.0",
     "gu": "^0.6.1",
-    "sulfur": "^1.0.0",
     "irc-colors": "^1.0.3",
     "irc-stream": "^0.3.0",
     "levenshtein": "^1.0.5",
+    "sulfur": "^1.0.0",
     "suncalc": "^1.6.0",
     "zalgolize": "^1.0.0"
   },

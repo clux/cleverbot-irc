@@ -27,8 +27,6 @@ exports.clvr = function (t) {
       }, (injected.ignoreMax+1)*1000);
       return;
     }
-    // TODO: if it starts failing - create a test to ensure
-    // resp is not equal to "<html>"" or whatever it returns when permissions fail
 
     // kill full-moon shenanigans - mostly - can't really sanitize zalgo
     var msg = ircColors.stripColorsAndStyle(resp.message);
