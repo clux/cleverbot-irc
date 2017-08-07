@@ -28,7 +28,7 @@ var insult = (function () {
 module.exports = function (gu, opts) {
   const ignoreMax = opts.ignoreMax || 3600;
 
-  let key = process.env.CLEVERBOT_KEY || cfg.apiKey;
+  var key = process.env.CLEVERBOT_KEY || cfg.apiKey;
   if (!key) {
     throw new Error("Missing API key");
   }
