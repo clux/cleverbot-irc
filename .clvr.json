@@ -1,7 +1,7 @@
 {
   "name": "clvr",
   "server": "irc.quakenet.org",
-  "apiKey": "xxxxxxxxxxxxxxxx-xxxxxx--xx",
+  "apiKey": "",
   "irc": {
     "channels": ["#testclever"],
     "userName": "IAmA",

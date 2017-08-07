@@ -1,9 +1,8 @@
 var Cleverbot = require('cleverbot-node')
   , clever = new Cleverbot()
+  , cfg = require(require('confortable')('.clvr.json', process.cwd()))
   , protection = require('./echo_protection')
   , maybeSpiceUp = require('./fullmoon_spiceup');
-
-clever.configure({ botapi: process.env.CLEVERBOT_KEY || cfg.apiKey });
 
 /**
  * insult code
@@ -27,8 +26,13 @@ var insult = (function () {
 }());
 
 module.exports = function (gu, opts) {
-
   const ignoreMax = opts.ignoreMax || 3600;
+
+  let key = process.env.CLEVERBOT_KEY || cfg.apiKey;
+  if (!key) {
+    throw new Error("Missing API key");
+  }
+  clever.configure({ botapi: key });
 
   gu.handle(/(.*)/, function (say, message, user) {
     gu.log.info(user + ':', message);
